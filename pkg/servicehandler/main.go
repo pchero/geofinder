@@ -19,8 +19,8 @@ type serviceHandler struct {
 }
 
 // NewServiceHandler return ServiceHandler interface
-func NewServiceHandler() ServiceHandler {
-	geoHandler := geohandler.NewGeoHandler()
+func NewServiceHandler(geodb string) ServiceHandler {
+	geoHandler := geohandler.NewGeoHandler(geodb)
 
 	return &serviceHandler{
 		geoHandler: geoHandler,

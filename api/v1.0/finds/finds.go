@@ -6,6 +6,7 @@ import (
 
 	"github.com/pchero/geofinder/api/models/common"
 	"github.com/pchero/geofinder/api/models/request"
+	"github.com/pchero/geofinder/api/models/response"
 	"github.com/pchero/geofinder/pkg/servicehandler"
 )
 
@@ -26,11 +27,15 @@ func findsPOST(c *gin.Context) {
 
 	// check the geo
 	serviceHandler := c.MustGet(common.OBJServiceHandler).(servicehandler.ServiceHandler)
-	res, err := serviceHandler.GeoFind(body.Address, body.Countries)
+	tmp, err := serviceHandler.GeoFind(body.Address, body.Countries)
 	if err != nil {
 		logrus.Errorf("Could not create a flow. err: %v", err)
 		c.AbortWithStatus(400)
 		return
+	}
+
+	res := response.BodyFindsPOST{
+		IsListed: tmp,
 	}
 
 	c.JSON(200, res)

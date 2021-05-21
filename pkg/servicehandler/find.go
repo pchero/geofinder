@@ -17,7 +17,7 @@ func (h *serviceHandler) GeoFind(address string, countries []string) (bool, erro
 		return false, err
 	}
 
-	// check the country has listed
+	// check the country is in the list
 	for _, c := range countries {
 		if c == country {
 			return true, nil

@@ -17,20 +17,22 @@ import (
 	"github.com/pchero/geofinder/pkg/servicehandler"
 )
 
-// @title VoIPBIN project API
+var geoDB = flag.String("geo_db", "./GeoLite2-City.mmdb", "ip-geo mapping db file")
+
+// @title GeoFinder project API
 // @version 1.0
-// @description RESTful API documents for VoIPBIN project.
+// @description RESTful API documents for GeoFinder project.
 // @termsOfService http://swagger.io/terms/
 
-// @contact.name VoIPBIN Project
+// @contact.name GeoFinder Project
 // @contact.email pchero21@gmail.com
 
-// @host api.voipbin.net
+// @host localhost:8080
 // @BasePath
 func main() {
 
 	// create servicehandler
-	serviceHandler := servicehandler.NewServiceHandler()
+	serviceHandler := servicehandler.NewServiceHandler(*geoDB)
 
 	app := gin.Default()
 
