@@ -11,12 +11,13 @@ import (
 )
 
 // findsPOST handles POST /finds request.
-// It checks a new flow with the given info and returns created flow info.
-// @Summary Create a new flow and returns detail created flow info.
-// @Description Create a new flow and returns detail created flow info.
+// It checks a given address's country has listed in the given list.
+// @Summary It checks a given address's country has listed in the given list.
+// @Description It checks a given address's country has listed in the given list.
 // @Produce json
-// @Success 200 {object} flow.Flow
-// @Router /v1.0/flows [post]
+// @Param address body request.BodyFindsPOST true "Address"
+// @Success 200 {object} response.BodyFindsPOST
+// @Router /v1.0/finds [post]
 func findsPOST(c *gin.Context) {
 
 	var body request.BodyFindsPOST
