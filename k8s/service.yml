@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: geofinder
+  # annotations:
+  #   cloud.google.com/load-balancer-type: "Internal"
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "geofinder-static-ip"
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: geofinder
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP

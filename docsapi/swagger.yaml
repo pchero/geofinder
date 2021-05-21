@@ -1,0 +1,38 @@
+definitions:
+  response.BodyFindsPOST:
+    properties:
+      is_listed:
+        type: boolean
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: pchero21@gmail.com
+    name: GeoFinder Project
+  description: RESTful API documents for GeoFinder project.
+  license: {}
+  termsOfService: http://swagger.io/terms/
+  title: GeoFinder project API
+  version: "1.0"
+paths:
+  /ping:
+    get:
+      description: Used to check the server is alive
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"message": "pong"}'
+      summary: Returns message pong
+  /v1.0/flows:
+    post:
+      description: Create a new flow and returns detail created flow info.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.BodyFindsPOST'
+      summary: Create a new flow and returns detail created flow info.
+swagger: "2.0"
