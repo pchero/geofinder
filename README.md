@@ -5,13 +5,6 @@
 $ docker build -t geofinder .
 ```
 
-# RUN
-```
-$ docker run --publish 80:80 geofinder /app/geofinder
-```
-
-# BUILD
-
 ## swag
 Install the swaggo
 ```
@@ -24,6 +17,17 @@ $ go get -u github.com/swaggo/files
 swag
 ```
 $ swag init -g cmd/geofinder/main.go -o docsapi
+```
+
+# RUN
+```
+$ docker run --publish 80:80 geofinder /app/geofinder
+```
+
+# Test
+```
+$ curl -X POST localhost:80/v1.0/finds -d '{"address":"81.2.69.142","countries":["GB"]}'
+{"is_listed":true}
 ```
 
 # API documents

@@ -15,7 +15,7 @@ import (
 // @Summary It checks a given address's country has listed in the given list.
 // @Description It checks a given address's country has listed in the given list.
 // @Produce json
-// @Param address body request.BodyFindsPOST true "Address"
+// @Param data body request.BodyFindsPOST true "Data"
 // @Success 200 {object} response.BodyFindsPOST
 // @Router /v1.0/finds [post]
 func findsPOST(c *gin.Context) {
